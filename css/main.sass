@@ -8,7 +8,7 @@
 
 @font-face
   font-family: 'Grot'
-  src: url('../fonts/Grot1-_RegularWEB.woff') format('woff'),url('../fonts/Grot1-_RegularWEB.woff2') format('truetype')
+  src: url('../fonts/Grot10_RegularWEB.woff') format('woff'),url('../fonts/Grot10_RegularWEB.woff2') format('truetype')
   font-weight: 300
   font-style: normal
 
@@ -32,16 +32,18 @@ a
   color: inherit
 p
   color: $text
+  font-family: 'Grot', Helvetica, sans-serif
   font-size: 16px
   line-height: 24px
-  margin: 0 0 0em
-  font-weight: 100
+  margin: 0 0 1.5em
+  font-weight: 400
   &:last-child
     margin-bottom: 0
   &.big
     font-size: 32px
     line-height: 44px
     letter-spacing: .5px
+    margin: 0
   &.indent
     text-indent: 4em
 h1, h2, h3, h4, h5, h6
@@ -130,7 +132,7 @@ article.main
   top: 0
   left: 0
   margin-top: 214px
-  margin-left: -182px
+  margin-left: -184px
   &.tab--header-second
     margin-top: 610px
 
@@ -168,6 +170,8 @@ article.main
   padding: 1.5em
   margin: 0 auto
   width: 100%
+  &.container--small
+    max-width: 800px
 .cf:before,.cf:after
   content: " "
   display: table
