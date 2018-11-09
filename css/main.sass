@@ -44,7 +44,7 @@ p
     letter-spacing: .5px
   &.indent
     text-indent: 4em
-h2, h3, h4
+h1, h2, h3, h4, h5, h6
   font-family: 'Grot', Helvetica, sans-serif
   font-weight: 300
   margin: 0
@@ -69,6 +69,12 @@ h4
   margin: 0
   padding: 0
   text-transform: uppercase
+h5
+  font-size: 15px
+  // margin: 0 0 10px
+  font-weight: 100
+  line-height: 16px
+  letter-spacing: .8px
 header.header
   background: white
   position: fixed
@@ -79,8 +85,10 @@ header.header
   z-index: 10
   height: 90px
   box-shadow: 0 0px 9px rgba(0,0,0,0.3)
-article
-  margin-top: 90px
+article.main
+
+  margin: 90px 144px 0 auto
+  padding: 1em
 .menu
   height: 90px
   padding: 0 2em
@@ -91,15 +99,45 @@ article
   margin-bottom: 2rem
 .mb--huge
   margin-bottom: 6rem
+.all-caps
+  text-transform: uppercase
 
-h3
-  font-size: 20px
-  // margin: 0 0 10px
-  color: $main
-  font-weight: 100
-  line-height: 26px
-.light
-  color: $text
+
+
+.tab
+  position: fixed
+  width: 48px
+  top: 90px
+  bottom: 0
+  right: 0
+  h5
+    color: white
+.tab--sage
+  background: $sage
+  right: 96px
+.tab--lowry
+  background: $lowry
+  right: 48px
+.tab--regent
+  background: $regent
+  right: 0
+  h5
+    color: $main
+
+.tab--header
+  width: 410px
+  transform: rotate(90deg)
+  position: absolute
+  top: 0
+  left: 0
+  margin-top: 214px
+  margin-left: -182px
+  &.tab--header-second
+    margin-top: 610px
+
+.flip
+  transform: rotate(90deg)
+
 
 
 .btn, button[type="submit"]
@@ -159,7 +197,7 @@ h3
 
   .one
     flex: 1
-    margin-right: 2%
+    // margin-right: 2%
     justify-content: space-around
     &:last-of-type
       margin-right: 0
