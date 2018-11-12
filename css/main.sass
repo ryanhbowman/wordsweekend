@@ -1,4 +1,5 @@
-@import normalise
+@import "normalise"
+@import "slick"
 
 @font-face
   font-family: 'English'
@@ -316,6 +317,8 @@ $tab-header: 48px
     max-width: 350px
   .three
     flex: 3
+    img
+      max-width: 100%
   &.flex-middle
     align-items: center
 
@@ -326,6 +329,21 @@ $tab-header: 48px
     margin-bottom: .25em
 h6.space-group-small
   margin-bottom: .25em
+
+.relative
+  position: relative
+
+.carousel
+  img
+    margin-right: 2em
+    padding-right: 1.5em
+.carousel-buttons
+  position: absolute
+  right: 12.5%
+  top: 50%
+  transform: translateY(-50%)
+  z-index: 9999999
+
 
 label
   display: block

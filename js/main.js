@@ -63,6 +63,10 @@ $(window).scroll(function () {
 });
 
 $( document ).ready(function() {
+  $('.carousel').slick({
+    nextArrow:'.next',
+    prevArrow:'.prev',
+  });
 
   $(".scroll").click(function(e) {
       e.preventDefault();
