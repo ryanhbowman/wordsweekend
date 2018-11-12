@@ -89,4 +89,68 @@ $( document ).ready(function() {
   });
 
 
+$( ".tilt" ).each(function() {
+  var adjust = $(this).attr('data-adjust');
+  var elementWidth = $(this).data('width')+ 100;
+
+  var windowWidth = $(window).innerWidth();
+  // var elementWidth = $(this).innerWidth();
+  // var left = (windowWidth / 5) - elementWidth;
+  var margin = (Math.floor(Math.random() * 100) + 200) * -1;
+  if (adjust == '2'){
+    // console.log('second');
+    margin = Math.floor(Math.random() * 200) + 50 + elementWidth;
+  }
+  console.log('adjust' + adjust);
+  console.log('windowWidth' + windowWidth);
+  console.log('elementWidth' + elementWidth);
+  console.log('margin' + margin);
+  $(this).css('transform', 'translateX('+margin+'px)');
+});
+
+$('.tlt').textillate(
+  {
+  initialDelay: 200,
+   type: 'char',
+   inEffects: ['rollIn'],
+   minDisplayTime: 0,
+ }
+);
+
+$('.tlt2').textillate(
+  {
+  initialDelay: 400,
+   type: 'char',
+   inEffects: ['splat'],
+   minDisplayTime: 0,
+ }
+);
+
+$('.tlt3').textillate(
+  {
+  initialDelay: 600,
+   type: 'char',
+   inEffects: ['rollIn'],
+   minDisplayTime: 0,
+ }
+);
+
+$('.tlt4').textillate(
+  {
+  initialDelay: 800,
+   type: 'char',
+   inEffects: ['splat'],
+   minDisplayTime: 0,
+ }
+);
+$('.tlt5').textillate(
+  {
+  initialDelay: 1000,
+   type: 'char',
+   inEffects: ['rollIn'],
+   minDisplayTime: 0,
+ }
+);
+
+
 });
