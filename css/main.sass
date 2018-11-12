@@ -110,6 +110,26 @@ article.main
   height: 90px
   padding: 0 2em
 
+.big-logo, .small-logo
+  opacity: 0
+  transition: .3s all ease-out
+  position: relative
+.small-logo
+  top: 15px
+  display: block
+  &.logo-active
+    opacity: 1
+    top: 0
+    top: -11px
+
+
+.big-logo
+  top: -15px
+  &.logo-active
+    opacity: 1
+    top: 16px
+
+
 .mb
   margin-bottom: 1rem
 .mb--big
@@ -206,7 +226,7 @@ $tab-header: 48px
 .tab-container .tab:hover
   margin-right: 3px
 
-.tab-container.sage--active .tab:hover , .tab-container.lowry--active .tab:hover, .tab-container.regent--active .tab:hover 
+.tab-container.sage--active .tab:hover , .tab-container.lowry--active .tab:hover, .tab-container.regent--active .tab:hover
   margin-right: 0
 
 

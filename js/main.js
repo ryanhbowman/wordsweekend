@@ -39,6 +39,29 @@ function initializeClock(id, endtime) {
 
 var deadline = '2019-10-25'
 initializeClock('clockdiv', deadline);
+
+function minLogo() {
+        //how fast to hide the work mark
+        var control = 13;
+        //margin top is currently 25, we want to subtract 50 to get to -25
+        // var marginTopExpected = 40;
+
+        //how far you have scrolled
+        var scrollProgress = $(window).scrollTop();
+        console.log(scrollProgress);
+        if (scrollProgress > control){
+          $('.small-logo').addClass('logo-active');
+          $('.big-logo').removeClass('logo-active');
+        }
+        else {
+          $('.small-logo').removeClass('logo-active');
+          $('.big-logo').addClass('logo-active');
+        }
+}
+$(window).scroll(function () {
+  minLogo();
+});
+
 $( document ).ready(function() {
 
   $(".scroll").click(function(e) {
