@@ -83,6 +83,18 @@ $( document ).ready(function() {
       $('#tabContainer').addClass('tab-container').addClass(tabLocation);
   });
 
+  $(".menu-item").click(function(e) {
+      e.preventDefault();
+      var tabLocation = $(this).attr('data-location');
+      $('#tabContainer').removeClass();
+      $('#tabContainer').addClass('tab-container').addClass(tabLocation);
+  });
+
+  $(".mobile-menu").click(function(e) {
+      e.preventDefault();
+      $('.menu-pop-up').toggleClass('active');
+  });
+
   $(".close-tab").click(function(e) {
       e.preventDefault();
       $('#tabContainer').removeClass().addClass('tab-container');
