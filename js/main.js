@@ -39,3 +39,22 @@ function initializeClock(id, endtime) {
 
 var deadline = '2019-10-25'
 initializeClock('clockdiv', deadline);
+$( document ).ready(function() {
+
+  $(".scroll").click(function(e) {
+      e.preventDefault();
+      toScroll = $('#mail');
+      $([document.documentElement, document.body]).animate({
+          scrollTop: ($(toScroll).offset().top - 100)
+      }, 1000);
+  });
+
+  $(".tab").click(function(e) {
+      e.preventDefault();
+      var tabLocation = $(this).attr('data-location');
+      $('#tabContainer').removeClass();
+      $('#tabContainer').addClass('tab-container').addClass(tabLocation);
+  });
+
+
+});

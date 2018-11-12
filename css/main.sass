@@ -114,25 +114,60 @@ article.main
 .all-caps
   text-transform: uppercase
 
+$tab-width: 496px
+$tab-header: 48px
 
-
+.tab-container
+  &.sage--active
+    .tab--sage
+      right: $tab-header * 2
+    .tab--lowry
+      right: -1 * ($tab-width - ($tab-header * 2))
+    .tab--regent
+      right: -1 * ($tab-width - ($tab-header * 1))
+  &.lowry--active
+    .tab--sage
+      right: $tab-header * 2
+    .tab--lowry
+      right: $tab-header * 1
+    .tab--regent
+      right: -1 * ($tab-width - ($tab-header * 1))
+  &.regent--active
+    .tab--sage
+      right: $tab-header * 2
+    .tab--lowry
+      right: $tab-header * 1
+    .tab--regent
+      right: 0
 .tab
   position: fixed
-  width: 48px
+  width: $tab-width
   top: 90px
   bottom: 0
   right: 0
+  color: white
+  transition: .4s all ease-out
   h5
     color: white
+  article
+    position: absolute
+    left: $tab-header
+    width: 100%
+    top: 0
+    bottom: 0
+    right: 0
 .tab--sage
   background: $sage
-  right: 96px
+  right: -1 * ($tab-width - ($tab-header * 3))
+  z-index: 1
 .tab--lowry
   background: $lowry
-  right: 48px
+  right: -1 * ($tab-width - ($tab-header * 2))
+  z-index: 2
 .tab--regent
   background: $regent
-  right: 0
+  right: -1 * ($tab-width - ($tab-header * 1))
+  z-index: 3
   h5
     color: $main
 
