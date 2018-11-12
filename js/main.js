@@ -88,6 +88,16 @@ $( document ).ready(function() {
       $('#tabContainer').removeClass().addClass('tab-container');
   });
 
+  $(".header").click(function(e) {
+      e.preventDefault();
+      $('#tabContainer').removeClass().addClass('tab-container');
+  });
+
+  $(".main").click(function(e) {
+      e.preventDefault();
+      $('#tabContainer').removeClass().addClass('tab-container');
+  });
+
 
 $( ".tilt" ).each(function() {
   var adjust = $(this).attr('data-adjust');
