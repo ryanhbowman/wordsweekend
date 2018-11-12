@@ -147,8 +147,13 @@ $tab-header: 48px
   right: 0
   color: white
   transition: .4s all ease-out
+  cursor: pointer
+  header &:hover
+    margin-right: 4px
   h5
     color: white
+    line-height: $tab-header
+    padding-left: $tab-header / 2
   article
     position: absolute
     left: $tab-header
@@ -178,10 +183,23 @@ $tab-header: 48px
   position: absolute
   top: 0
   left: 0
-  margin-top: 214px
+  margin-top: 183px
   margin-left: -184px
   &.tab--header-second
     margin-top: 610px
+
+.close-tab
+  position: absolute
+  right: 71px
+  z-index: 34
+  top: 17px
+  font-size: 12px
+  text-transform: uppercase
+  letter-spacing: 1px
+  opacity: .8
+  svg
+    top: 1px
+    position: relative
 
 .flip
   transform: rotate(90deg)

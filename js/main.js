@@ -49,11 +49,16 @@ $( document ).ready(function() {
       }, 1000);
   });
 
-  $(".tab").click(function(e) {
+  $(".tab header").click(function(e) {
       e.preventDefault();
-      var tabLocation = $(this).attr('data-location');
+      var tabLocation = $(this).parent().attr('data-location');
       $('#tabContainer').removeClass();
       $('#tabContainer').addClass('tab-container').addClass(tabLocation);
+  });
+
+  $(".close-tab").click(function(e) {
+      e.preventDefault();
+      $('#tabContainer').removeClass().addClass('tab-container');
   });
 
 
