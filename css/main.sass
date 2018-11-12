@@ -44,6 +44,11 @@ p
     line-height: 44px
     letter-spacing: .5px
     margin: 0
+  &.medium
+    font-size: 24px
+    line-height: 34px
+    letter-spacing: .5px
+    margin: 0
   &.indent
     text-indent: 4em
 h1, h3, h4, h5, h6
@@ -114,7 +119,7 @@ article.main
 .all-caps
   text-transform: uppercase
 
-$tab-width: 550px
+$tab-width: 780px
 $tab-header: 48px
 
 .tab-container
@@ -146,34 +151,44 @@ $tab-header: 48px
   bottom: 0
   right: 0
   color: white
+
   transition: .4s all ease-out
   cursor: pointer
-  header &:hover
+  header:hover
     margin-right: 4px
   h5
     color: white
     line-height: $tab-header
     padding-left: $tab-header / 2
+
   article
     position: absolute
     left: $tab-header
-    width: 100%
+    width: calc(100% - $tab-header)
     top: 0
     bottom: 0
     right: 0
-    padding: 1em
+    padding: 3em 1em 1em
+    overflow: auto
+  .tab-image
+    margin: 0 2em 2em 0
 .tab--sage
   background: $sage
   right: -1 * ($tab-width - ($tab-header * 3))
   z-index: 1
+  p
+    color: white
 .tab--lowry
   background: $lowry
   right: -1 * ($tab-width - ($tab-header * 2))
   z-index: 2
+  p
+    color: white
 .tab--regent
   background: $regent
   right: -1 * ($tab-width - ($tab-header * 1))
   z-index: 3
+  color: $main !important
   h5
     color: $main
 
@@ -188,9 +203,16 @@ $tab-header: 48px
   &.tab--header-second
     margin-top: 610px
 
+.tab-container .tab:hover
+  margin-right: 3px
+
+.tab-container.sage--active .tab:hover , .tab-container.lowry--active .tab:hover, .tab-container.regent--active .tab:hover 
+  margin-right: 0
+
+
 .close-tab
   position: absolute
-  right: 71px
+  right: 21px
   z-index: 34
   top: 17px
   font-size: 12px
@@ -299,6 +321,11 @@ input, textarea
 
 .www
   background: url(../images/www.png)
+  height: 9px
+  width: 100%
+  margin: 4em 0 2em
+.www-white
+  background: url(../images/www-white.png)
   height: 9px
   width: 100%
   margin: 4em 0 2em
