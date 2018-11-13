@@ -411,7 +411,56 @@ input, textarea
   float: right
 .menu-pop-up
   display: none
+
+
+$h1height: 100px
+$h1adjust: 80px
+
+h1
+  line-height: 105px
+  width: auto
+  font-size: 140px
+.animation
+  height: calc(77vh - 90px)
+  // background: aliceblue
+  h1
+    position: absolute
+    &:nth-of-type(1)
+      top: $h1adjust + $h1height
+    &:nth-of-type(2)
+      top: $h1adjust + $h1height * 2
+    &:nth-of-type(3)
+      top: $h1adjust + $h1height * 3
+    &:nth-of-type(4)
+      top: $h1adjust + $h1height * 4
+    &:nth-of-type(5)
+      top: $h1adjust + $h1height * 5
+
 @media (max-width: 769px)
+  $h1height: 100px
+  $h1adjust: 80px
+  .animation
+    height: calc(77vh - 90px)
+    h1
+      position: absolute
+      width: 100%
+      // background: rgba(0,0,0,.1)
+      height: 100px
+      font-size: 130px
+      line-height: 40px
+      &:nth-of-type(1)
+        top: $h1height + $h1adjust - 40px
+        margin-left: 400px
+      &:nth-of-type(2)
+        top: $h1adjust + $h1height * 2
+      &:nth-of-type(3)
+        top: $h1adjust + $h1height * 3
+        // margin-left: 400px
+      &:nth-of-type(4)
+        top: $h1adjust + $h1height * 4
+        // right: 0
+      &:nth-of-type(5)
+        top: $h1adjust + $h1height * 5
   .menu-pop-up
     display: block
     position: absolute
@@ -478,7 +527,34 @@ input, textarea
         top: 100%
 
 
+@media (max-width: 735px)
+  .animation
+    h1:nth-of-type(1)
+      top: $h1height + $h1adjust - 40px
+      margin-left: 0px
+@media (max-width: 500px)
+  $h1height: 50px
+  $h1adjust: 90px
+  .animation
+    height: calc(77vh - 90px)
+    h1
+      font-size: 70px
+      line-height: 10px
+      &:nth-of-type(1)
+        top: $h1height + $h1adjust
+        // margin-left: 400px
+      &:nth-of-type(2)
+        top: $h1adjust + $h1height * 2
+      &:nth-of-type(3)
+        top: $h1adjust + $h1height * 3
+        // margin-left: 400px
+      &:nth-of-type(4)
+        top: $h1adjust + $h1height * 4
+        // right: 0
+      &:nth-of-type(5)
+        top: $h1adjust + $h1height * 5
 @media (max-width: 600px)
+
   .flex
     display: block
     &.preserve
@@ -500,6 +576,8 @@ input, textarea
   .menu
     svg
       max-width: 220px
+    .small-logo svg
+      width: 50px
     padding: 0 1em
     height: 70px
   header.header
@@ -549,26 +627,3 @@ input, textarea
   h3
     font-size: 15px
     line-height: 20px
-
-$h1height: 100px
-$h1adjust: 80px
-
-h1
-  line-height: 105px
-  width: auto
-  font-size: 140px
-.animation
-  height: calc(70vh - 90px)
-  // background: aliceblue
-  h1
-    position: absolute
-    &:nth-of-type(1)
-      top: $h1adjust + $h1height
-    &:nth-of-type(2)
-      top: $h1adjust + $h1height * 2
-    &:nth-of-type(3)
-      top: $h1adjust + $h1height * 3
-    &:nth-of-type(4)
-      top: $h1adjust + $h1height * 4
-    &:nth-of-type(5)
-      top: $h1adjust + $h1height * 5

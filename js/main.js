@@ -118,21 +118,51 @@ $( ".tilt" ).each(function() {
   //the current random left margin that is annoying
   var currentLeft = 400;
   var tabs = 144;
-  var elementWidth = $(this).data('width')+ currentLeft;
+  var browserSize = $(window).innerWidth();
 
-  var windowWidth = $(window).innerWidth() - tabs;
-  // var elementWidth = $(this).innerWidth();
-  // var left = (windowWidth / 5) - elementWidth;
-  var margin = ((windowWidth / 2) - ((currentLeft + elementWidth) / 2)) - (Math.floor(Math.random() * 100) + 170);
-  if (adjust == '2'){
-    // console.log('second');
-    margin = ((windowWidth / 2) - ((currentLeft + elementWidth) / 2)) + (Math.floor(Math.random() * 100) + 170);
+  if (browserSize > 769){
+    var elementWidth = $(this).data('width')+ currentLeft;
+    var windowWidth = browserSize - tabs;
+    var margin = ((windowWidth / 2) - ((currentLeft + elementWidth) / 2)) - (Math.floor(Math.random() * 100) + 170);
+    if (adjust == '2'){
+      margin = ((windowWidth / 2) - ((currentLeft + elementWidth) / 2)) + (Math.floor(Math.random() * 100) + 170);
+    }
   }
+  else if (browserSize < 769 && browserSize > 735){
+    var elementWidth = $(this).data('width');
+    var windowWidth = browserSize;
+    var margin = (Math.floor(Math.random() * (windowWidth / 5))) - currentLeft;
+    if (adjust == '2'){
+      margin = (Math.floor(Math.random() * (windowWidth / 5)) + (windowWidth / 4)) - currentLeft;
+    }
+    console.log('medium')
+  }
+  else if (browserSize < 735 && browserSize > 500){
+    var elementWidth = $(this).data('width');
+    var windowWidth = browserSize;
+    var margin = (Math.floor(Math.random() * (windowWidth / 6)));
+    if (adjust == '2'){
+      margin = 0
+    }
+    console.log('small')
+  }
+  else if (browserSize < 500){
+    var elementWidth = $(this).data('width');
+    var windowWidth = browserSize;
+    var margin = (Math.floor(Math.random() * 10));
+    if (adjust == '2'){
+      margin = (Math.floor(Math.random() * 20))
+    }
+    console.log('small')
+  }
+
+  $(this).css('transform', 'translateX('+margin+'px)');
+
   console.log('adjust' + adjust);
   console.log('windowWidth' + windowWidth);
   console.log('elementWidth' + elementWidth);
   console.log('margin' + margin);
-  $(this).css('transform', 'translateX('+margin+'px)');
+
 });
 
 //old showing on sides
