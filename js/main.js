@@ -123,10 +123,10 @@ $( ".tilt" ).each(function() {
   var windowWidth = $(window).innerWidth() - tabs;
   // var elementWidth = $(this).innerWidth();
   // var left = (windowWidth / 5) - elementWidth;
-  var margin = (Math.floor(Math.random() * 100) + 250) * -1;
+  var margin = ((windowWidth / 2) - ((currentLeft + elementWidth) / 2)) - (Math.floor(Math.random() * 100) + 100);
   if (adjust == '2'){
     // console.log('second');
-    margin = windowWidth - elementWidth - (Math.floor(Math.random() * 100) + 100);
+    margin = ((windowWidth / 2) - ((currentLeft + elementWidth) / 2)) + (Math.floor(Math.random() * 100) + 100);
   }
   console.log('adjust' + adjust);
   console.log('windowWidth' + windowWidth);
@@ -134,6 +134,30 @@ $( ".tilt" ).each(function() {
   console.log('margin' + margin);
   $(this).css('transform', 'translateX('+margin+'px)');
 });
+
+//old showing on sides
+// $( ".tilt" ).each(function() {
+//   //if first half or second
+//   var adjust = $(this).attr('data-adjust');
+//   //the current random left margin that is annoying
+//   var currentLeft = 400;
+//   var tabs = 144;
+//   var elementWidth = $(this).data('width')+ currentLeft;
+//
+//   var windowWidth = $(window).innerWidth() - tabs;
+//   // var elementWidth = $(this).innerWidth();
+//   // var left = (windowWidth / 5) - elementWidth;
+//   var margin = (Math.floor(Math.random() * 100) + 250) * -1;
+//   if (adjust == '2'){
+//     // console.log('second');
+//     margin = windowWidth - elementWidth - (Math.floor(Math.random() * 100) + 100);
+//   }
+//   console.log('adjust' + adjust);
+//   console.log('windowWidth' + windowWidth);
+//   console.log('elementWidth' + elementWidth);
+//   console.log('margin' + margin);
+//   $(this).css('transform', 'translateX('+margin+'px)');
+// });
 
 $('.tlt').textillate(
   {
