@@ -113,16 +113,20 @@ $( document ).ready(function() {
 
 
 $( ".tilt" ).each(function() {
+  //if first half or second
   var adjust = $(this).attr('data-adjust');
-  var elementWidth = $(this).data('width')+ 100;
+  //the current random left margin that is annoying
+  var currentLeft = 400;
+  var tabs = 144;
+  var elementWidth = $(this).data('width')+ currentLeft;
 
-  var windowWidth = $(window).innerWidth();
+  var windowWidth = $(window).innerWidth() - tabs;
   // var elementWidth = $(this).innerWidth();
   // var left = (windowWidth / 5) - elementWidth;
-  var margin = (Math.floor(Math.random() * 100) + 200) * -1;
+  var margin = (Math.floor(Math.random() * 100) + 250) * -1;
   if (adjust == '2'){
     // console.log('second');
-    margin = Math.floor(Math.random() * 200) + 50 + elementWidth;
+    margin = windowWidth - elementWidth - (Math.floor(Math.random() * 100) + 100);
   }
   console.log('adjust' + adjust);
   console.log('windowWidth' + windowWidth);

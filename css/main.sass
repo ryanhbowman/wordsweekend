@@ -106,7 +106,7 @@ header.header
   height: 90px
   box-shadow: 0 0px 9px rgba(0,0,0,0.3)
 article.main
-  margin: 120px 144px 0 auto
+  margin: 30px 144px 0 auto
   // padding: 1em
 .menu
   height: 90px
@@ -343,7 +343,7 @@ h6.space-group-small
   right: 12.5%
   top: 50%
   transform: translateY(-50%)
-  z-index: 9999999
+  z-index: 1
 
 
 label
@@ -499,7 +499,25 @@ input, textarea
     font-size: 15px
     line-height: 20px
 
+$h1height: 100px
+$h1adjust: 80px
+
 h1
   line-height: 105px
   width: auto
   font-size: 140px
+.animation
+  height: calc(70vh - 90px)
+  // background: aliceblue
+  h1
+    position: absolute
+    &:nth-of-type(1)
+      top: $h1adjust + $h1height
+    &:nth-of-type(2)
+      top: $h1adjust + $h1height * 2
+    &:nth-of-type(3)
+      top: $h1adjust + $h1height * 3
+    &:nth-of-type(4)
+      top: $h1adjust + $h1height * 4
+    &:nth-of-type(5)
+      top: $h1adjust + $h1height * 5
