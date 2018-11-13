@@ -123,10 +123,10 @@ $( ".tilt" ).each(function() {
   var windowWidth = $(window).innerWidth() - tabs;
   // var elementWidth = $(this).innerWidth();
   // var left = (windowWidth / 5) - elementWidth;
-  var margin = ((windowWidth / 2) - ((currentLeft + elementWidth) / 2)) - (Math.floor(Math.random() * 100) + 100);
+  var margin = ((windowWidth / 2) - ((currentLeft + elementWidth) / 2)) - (Math.floor(Math.random() * 100) + 170);
   if (adjust == '2'){
     // console.log('second');
-    margin = ((windowWidth / 2) - ((currentLeft + elementWidth) / 2)) + (Math.floor(Math.random() * 100) + 100);
+    margin = ((windowWidth / 2) - ((currentLeft + elementWidth) / 2)) + (Math.floor(Math.random() * 100) + 170);
   }
   console.log('adjust' + adjust);
   console.log('windowWidth' + windowWidth);
