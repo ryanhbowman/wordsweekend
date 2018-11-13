@@ -641,5 +641,27 @@ London NW1 4NU
     <script src="js/jquery.textillate.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+<script>
+window.addEventListener("load", function(){
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#000"
+    },
+    "button": {
+      "background": "#ffffff"
+    }
+  },
+  "position": "bottom-left",
+  "content": {
+    "message": "This website uses cookies to provide you the best experience.  You give us your permission to do so by clicking on the “I agree” button or by continuing to use our website after you have received this cookie notification.",
+    "dismiss": "I agree",
+    "href": "/privacy"
+  }
+})});
+</script>
   </body>
 </html>
