@@ -306,13 +306,18 @@ $tab-header: 48px
   display: flex
   flex-wrap: wrap
   justify-content: start
-
+  img
+    width: 100%
   .one
     flex: 1
     // margin-right: 2%
     justify-content: space-around
     &:last-of-type
       margin-right: 0
+    &.marginal
+      margin-right: 4%
+      &:last-of-type
+        margin-right: 0
   .two
     flex: 2
     max-width: 350px
@@ -322,7 +327,11 @@ $tab-header: 48px
       max-width: 100%
   &.flex-middle
     align-items: center
-
+.menu-item
+  text-align: center
+  font-size: 18px
+  img
+    margin-bottom: 10px
 .social
   font-size: 20px
 
@@ -344,6 +353,7 @@ h6.space-group-small
   top: 50%
   transform: translateY(-50%)
   z-index: 1
+  cursor: pointer
 
 
 label
@@ -397,7 +407,8 @@ input, textarea
 
 .mobile-menu
   display: none
-
+.tab img
+  float: right
 
 @media (max-width: 769px)
   .menu-pop-up
@@ -405,9 +416,10 @@ input, textarea
     left: 0
     right: 0
     top: -400px
-    z-index: 10
+    z-index: 3
     background: white
     transition: .4s all
+    border-bottom: 1px solid #ddd
     &.active
       top: 89px
   .mobile-menu
@@ -474,7 +486,7 @@ input, textarea
       .one, .two
         margin-bottom: 0
 
-    .one, .two
+    .one, .two, .three
       margin-bottom: 1.5em
 
 
@@ -490,6 +502,35 @@ input, textarea
     height: 70px
   header.header
     height: 70px
+  .menu-pop-up
+    &.active
+      top: 69px
+  .menu-item.marginal.one
+    margin-right: 3%
+  .menu-item
+    font-size: 14px
+    line-height: 19px
+    img
+      margin-bottom: 5px
+  .tab-container
+    &.sage--active
+      .tab--sage
+        top: 70px
+      .tab--lowry, .tab--regent
+        top: 100%
+
+    &.lowry--active
+      .tab--sage, .tab--regent
+        top: 100%
+      .tab--lowry
+        top: 70px
+    &.regent--active
+      .tab--regent
+        top: 70px
+      .tab--lowry, .tab--sage
+        top: 100%
+  .tab img
+    float: none
 
 
 
