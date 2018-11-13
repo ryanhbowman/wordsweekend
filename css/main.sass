@@ -190,7 +190,8 @@ $tab-header: 48px
     top: 0
     bottom: 0
     right: 0
-    padding: 3em 1em 1em
+    padding: 0em 1em 1em
+    margin-top: 3em
     overflow: auto
   .tab-image
     margin: 0 2em 2em 0
@@ -198,18 +199,24 @@ $tab-header: 48px
   background: $sage
   right: -1 * ($tab-width - ($tab-header * 3))
   z-index: 1
+  header
+    background: $sage
   p
     color: white
 .tab--lowry
   background: $lowry
   right: -1 * ($tab-width - ($tab-header * 2))
   z-index: 2
+  header
+    background: $lowry
   p
     color: white
 .tab--regent
   background: $regent
   right: -1 * ($tab-width - ($tab-header * 1))
   z-index: 3
+  header
+    background: $regent
   color: $main !important
   h5
     color: $main
@@ -233,18 +240,31 @@ $tab-header: 48px
 
 
 .close-tab
-  position: absolute
+  position: fixed
   right: 21px
   z-index: 34
-  top: 17px
+  top: 104px
   font-size: 12px
   text-transform: uppercase
   letter-spacing: 1px
-  opacity: .8
+  opacity: 0
+
+  transition: .4s all
   svg
     top: 1px
     position: relative
-
+.sage--active
+  .close-tab
+    opacity: .8
+    right: 21px + 96px
+.lowry--active
+  .close-tab
+    opacity: .8
+    right: 21px + 48px
+.regent--active
+  .close-tab
+    opacity: .8
+    right: 21px
 .flip
   transform: rotate(90deg)
 
@@ -421,6 +441,7 @@ h1
   width: auto
   font-size: 140px
 .animation
+  overflow: hidden
   height: calc(77vh - 90px)
   // background: aliceblue
   h1
@@ -463,7 +484,7 @@ h1
         top: $h1adjust + $h1height * 5
   .menu-pop-up
     display: block
-    position: absolute
+    position: fixed
     left: 0
     right: 0
     top: -400px
@@ -475,6 +496,7 @@ h1
       top: 89px
   .mobile-menu
     display: block
+
   h2
     font-size: 22px
     line-height: 26px
@@ -508,19 +530,27 @@ h1
   p.big, p.medium
     font-size: 18px
     line-height: 24px
+
   .tab-container
+
     &.sage--active
+      .close-tab
+        display: block
       .tab--sage
         top: 90px
       .tab--lowry, .tab--regent
         top: 100%
 
     &.lowry--active
+      .close-tab
+        display: block
       .tab--sage, .tab--regent
         top: 100%
       .tab--lowry
         top: 90px
     &.regent--active
+      .close-tab
+        display: block
       .tab--regent
         top: 90px
       .tab--lowry, .tab--sage
