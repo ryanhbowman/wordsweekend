@@ -88,6 +88,7 @@ $( document ).ready(function() {
       var tabLocation = $(this).attr('data-location');
       $('#tabContainer').removeClass();
       $('#tabContainer').addClass('tab-container').addClass(tabLocation);
+      $('.menu-pop-up').toggleClass('active');
   });
 
   $(".mobile-menu").click(function(e) {
