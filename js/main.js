@@ -120,7 +120,16 @@ $( ".tilt" ).each(function() {
   var tabs = 144;
   var browserSize = $(window).innerWidth();
 
-  if (browserSize > 769){
+  if (browserSize > 1700){
+    var elementWidth = $(this).data('width')+ currentLeft;
+    var windowWidth = 1400;
+    var margin = ((windowWidth / 2) - ((currentLeft + elementWidth) / 2)) - (Math.floor(Math.random() * 100) );
+    if (adjust == '2'){
+      margin = ((windowWidth / 2) - ((currentLeft + elementWidth) / 2)) + (Math.floor(Math.random() * 100) );
+    }
+  }
+
+  if (browserSize > 769 && browserSize < 1700){
     var elementWidth = $(this).data('width')+ currentLeft;
     var windowWidth = browserSize - tabs;
     var margin = ((windowWidth / 2) - ((currentLeft + elementWidth) / 2)) - (Math.floor(Math.random() * 100) + 170);
@@ -158,10 +167,10 @@ $( ".tilt" ).each(function() {
 
   $(this).css('transform', 'translateX('+margin+'px)');
 
-  // console.log('adjust' + adjust);
-  // console.log('windowWidth' + windowWidth);
-  // console.log('elementWidth' + elementWidth);
-  // console.log('margin' + margin);
+  console.log('adjust' + adjust);
+  console.log('windowWidth' + windowWidth);
+  console.log('elementWidth' + elementWidth);
+  console.log('margin' + margin);
 
 });
 
