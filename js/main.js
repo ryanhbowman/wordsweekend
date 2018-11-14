@@ -106,8 +106,8 @@ $( document ).ready(function() {
       $('#tabContainer').removeClass().addClass('tab-container');
   });
 
-  $(".main").click(function(e) {
-      e.preventDefault();
+  $(".main").click(function() {
+      // e.preventDefault();
       $('#tabContainer').removeClass().addClass('tab-container');
   });
 
