@@ -123,9 +123,9 @@ $( ".tilt" ).each(function() {
   if (browserSize > 1700){
     var elementWidth = $(this).data('width')+ currentLeft;
     var windowWidth = 1400;
-    var margin = ((windowWidth / 2) - ((currentLeft + elementWidth) / 2)) - (Math.floor(Math.random() * 100) );
+    var margin = ((windowWidth / 2) - ((currentLeft + elementWidth) / 2)) - (Math.floor(Math.random() * 100) + 170 );
     if (adjust == '2'){
-      margin = ((windowWidth / 2) - ((currentLeft + elementWidth) / 2)) + (Math.floor(Math.random() * 100) );
+      margin = ((windowWidth / 2) - ((currentLeft + elementWidth) / 2)) + (Math.floor(Math.random() * 100) + 170 );
     }
   }
 
@@ -165,7 +165,7 @@ $( ".tilt" ).each(function() {
     // console.log('xsmall')
   }
 
-  $(this).css('transform', 'translateX('+margin+'px)');
+  $(this).css('transform', 'translateX('+margin+'px)').css('opacity','1');
 
   console.log('adjust' + adjust);
   console.log('windowWidth' + windowWidth);
@@ -203,7 +203,7 @@ $('.tlt').textillate(
   initialDelay: 200,
    type: 'char',
    inEffects: ['rollIn'],
-   minDisplayTime: 0,
+   minDisplayTime: 200,
  }
 );
 
