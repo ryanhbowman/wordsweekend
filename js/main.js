@@ -87,9 +87,9 @@ function animateWords() {
     else if (browserSize < 769 && browserSize > 735){
       var elementWidth = $(this).data('width');
       var windowWidth = browserSize;
-      var margin = (Math.floor(Math.random() * (windowWidth / 5))) - currentLeft;
+      var margin = (Math.floor(Math.random() * (windowWidth / 5))) ;
       if (adjust == '2'){
-        margin = (Math.floor(Math.random() * (windowWidth / 5)) + (windowWidth / 4)) - currentLeft;
+        margin = (Math.floor(Math.random() * (windowWidth / 5)) + (windowWidth / 2)) - currentLeft;
       }
       var maxWidth = 600;
       // console.log('medium')
@@ -109,7 +109,7 @@ function animateWords() {
       var windowWidth = browserSize;
       var margin = (Math.floor(Math.random() * 10) + 20);
       if (adjust == '2'){
-        margin = (Math.floor(Math.random() * 10)- 20)
+        margin = (Math.floor(Math.random() * 10)+30)
       }
       var maxWidth = 300;
       // console.log('xsmall')

@@ -489,6 +489,7 @@ h1
 .animation
   overflow: hidden
   height: calc(77vh - 90px)
+  min-height: 570px
   // background: aliceblue
   h1
     position: absolute
@@ -515,7 +516,8 @@ h1
 
 
   .animation
-    height: calc(77vh - 90px)
+    height: calc(67vh - 90px)
+    min-height: 500px
     h1
       position: absolute
       width: 100%
@@ -525,7 +527,7 @@ h1
       line-height: 40px
       &:nth-of-type(1)
         top: $h1height + $h1adjust - 40px
-        margin-left: 400px
+        margin-left: 0px
       &:nth-of-type(2)
         top: $h1adjust + $h1height * 2
       &:nth-of-type(3)
@@ -631,6 +633,7 @@ h1
   .animation
     height: calc(57vh - 70px)
     overflow: hidden
+    min-height: 320px
     h1
       font-size: 70px
       line-height: 10px
@@ -643,7 +646,7 @@ h1
         // margin-top: 10px
       &:nth-of-type(3)
         top: $h1adjust + $h1height * 3
-        margin-left: -60px
+        margin-left: -30px
         // margin-top: 10px
       &:nth-of-type(4)
         top: $h1adjust + $h1height * 4
@@ -731,3 +734,8 @@ h1
   h3
     font-size: 15px
     line-height: 20px
+.cc-window.cc-floating
+  padding: 1.2em !important
+  // background: yellow
+  font-size: .8em !important
+  border: 1px solid lightgray
