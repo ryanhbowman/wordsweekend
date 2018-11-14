@@ -58,9 +58,131 @@ function minLogo() {
           $('.big-logo').addClass('logo-active');
         }
 }
+function animateWords() {
+  $( ".tilt" ).each(function() {
+    //if first half or second
+    var adjust = $(this).attr('data-adjust');
+    //the current random left margin that is annoying
+    var currentLeft = 400;
+    var tabs = 144;
+    var browserSize = $(window).innerWidth();
+
+    if (browserSize > 1700){
+      var elementWidth = $(this).data('width')+ currentLeft;
+      var windowWidth = 1400;
+      var margin = ((windowWidth / 2) - ((currentLeft + elementWidth) / 2)) - (Math.floor(Math.random() * 100) + 170 );
+      if (adjust == '2'){
+        margin = ((windowWidth / 2) - ((currentLeft + elementWidth) / 2)) + (Math.floor(Math.random() * 100) + 170 );
+      }
+    }
+
+    if (browserSize > 769 && browserSize < 1700){
+      var elementWidth = $(this).data('width')+ currentLeft;
+      var windowWidth = browserSize - tabs;
+      var margin = ((windowWidth / 2) - ((currentLeft + elementWidth) / 2)) - (Math.floor(Math.random() * 100) + 170);
+      if (adjust == '2'){
+        margin = ((windowWidth / 2) - ((currentLeft + elementWidth) / 2)) + (Math.floor(Math.random() * 100) + 170);
+      }
+    }
+    else if (browserSize < 769 && browserSize > 735){
+      var elementWidth = $(this).data('width');
+      var windowWidth = browserSize;
+      var margin = (Math.floor(Math.random() * (windowWidth / 5))) - currentLeft;
+      if (adjust == '2'){
+        margin = (Math.floor(Math.random() * (windowWidth / 5)) + (windowWidth / 4)) - currentLeft;
+      }
+      var maxWidth = 600;
+      // console.log('medium')
+    }
+    else if (browserSize < 735 && browserSize > 500){
+      var elementWidth = $(this).data('width');
+      var windowWidth = browserSize;
+      var margin = (Math.floor(Math.random() * (windowWidth / 6)));
+      if (adjust == '2'){
+        margin = 0
+      }
+      var maxWidth = 600;
+      // console.log('small')
+    }
+    else if (browserSize < 500){
+      var elementWidth = $(this).data('width');
+      var windowWidth = browserSize;
+      var margin = (Math.floor(Math.random() * 10) + 20);
+      if (adjust == '2'){
+        margin = (Math.floor(Math.random() * 10)- 20)
+      }
+      var maxWidth = 300;
+      // console.log('xsmall')
+    }
+
+    $(this).css('transform', 'translateX('+margin+'px)').css('opacity','1');
+    if (maxWidth){
+      $(this).css('max-width',maxWidth + 'px');
+    }
+
+    console.log('adjust' + adjust);
+    console.log('windowWidth' + windowWidth);
+    console.log('elementWidth' + elementWidth);
+    console.log('margin' + margin);
+
+  });
+
+
+  $('.tlt').textillate(
+    {
+    initialDelay: 200,
+     type: 'char',
+     inEffects: ['rollIn'],
+     minDisplayTime: 200,
+   }
+  );
+
+  $('.tlt2').textillate(
+    {
+    initialDelay: 400,
+     type: 'char',
+     inEffects: ['splat'],
+     minDisplayTime: 0,
+   }
+  );
+
+  $('.tlt3').textillate(
+    {
+    initialDelay: 600,
+     type: 'char',
+     inEffects: ['rollIn'],
+     minDisplayTime: 0,
+   }
+  );
+
+  $('.tlt4').textillate(
+    {
+    initialDelay: 800,
+     type: 'char',
+     inEffects: ['splat'],
+     minDisplayTime: 0,
+   }
+  );
+  $('.tlt5').textillate(
+    {
+    initialDelay: 1000,
+     type: 'char',
+     inEffects: ['rollIn'],
+     minDisplayTime: 0,
+   }
+  );
+}
+
 $(window).scroll(function () {
   minLogo();
 });
+
+
+$(window).resize(function () {
+  animateWords();
+
+});
+
 
 $( document ).ready(function() {
   $('.carousel').slick({
@@ -112,141 +234,7 @@ $( document ).ready(function() {
   });
 
 
-$( ".tilt" ).each(function() {
-  //if first half or second
-  var adjust = $(this).attr('data-adjust');
-  //the current random left margin that is annoying
-  var currentLeft = 400;
-  var tabs = 144;
-  var browserSize = $(window).innerWidth();
-
-  if (browserSize > 1700){
-    var elementWidth = $(this).data('width')+ currentLeft;
-    var windowWidth = 1400;
-    var margin = ((windowWidth / 2) - ((currentLeft + elementWidth) / 2)) - (Math.floor(Math.random() * 100) + 170 );
-    if (adjust == '2'){
-      margin = ((windowWidth / 2) - ((currentLeft + elementWidth) / 2)) + (Math.floor(Math.random() * 100) + 170 );
-    }
-  }
-
-  if (browserSize > 769 && browserSize < 1700){
-    var elementWidth = $(this).data('width')+ currentLeft;
-    var windowWidth = browserSize - tabs;
-    var margin = ((windowWidth / 2) - ((currentLeft + elementWidth) / 2)) - (Math.floor(Math.random() * 100) + 170);
-    if (adjust == '2'){
-      margin = ((windowWidth / 2) - ((currentLeft + elementWidth) / 2)) + (Math.floor(Math.random() * 100) + 170);
-    }
-  }
-  else if (browserSize < 769 && browserSize > 735){
-    var elementWidth = $(this).data('width');
-    var windowWidth = browserSize;
-    var margin = (Math.floor(Math.random() * (windowWidth / 5))) - currentLeft;
-    if (adjust == '2'){
-      margin = (Math.floor(Math.random() * (windowWidth / 5)) + (windowWidth / 4)) - currentLeft;
-    }
-    var maxWidth = 600;
-    // console.log('medium')
-  }
-  else if (browserSize < 735 && browserSize > 500){
-    var elementWidth = $(this).data('width');
-    var windowWidth = browserSize;
-    var margin = (Math.floor(Math.random() * (windowWidth / 6)));
-    if (adjust == '2'){
-      margin = 0
-    }
-    var maxWidth = 600;
-    // console.log('small')
-  }
-  else if (browserSize < 500){
-    var elementWidth = $(this).data('width');
-    var windowWidth = browserSize;
-    var margin = (Math.floor(Math.random() * 10) + 20);
-    if (adjust == '2'){
-      margin = (Math.floor(Math.random() * 10)- 20)
-    }
-    var maxWidth = 300;
-    // console.log('xsmall')
-  }
-
-  $(this).css('transform', 'translateX('+margin+'px)').css('opacity','1');
-  if (maxWidth){
-    $(this).css('max-width',maxWidth + 'px');
-  }
-
-  console.log('adjust' + adjust);
-  console.log('windowWidth' + windowWidth);
-  console.log('elementWidth' + elementWidth);
-  console.log('margin' + margin);
-
-});
-
-//old showing on sides
-// $( ".tilt" ).each(function() {
-//   //if first half or second
-//   var adjust = $(this).attr('data-adjust');
-//   //the current random left margin that is annoying
-//   var currentLeft = 400;
-//   var tabs = 144;
-//   var elementWidth = $(this).data('width')+ currentLeft;
-//
-//   var windowWidth = $(window).innerWidth() - tabs;
-//   // var elementWidth = $(this).innerWidth();
-//   // var left = (windowWidth / 5) - elementWidth;
-//   var margin = (Math.floor(Math.random() * 100) + 250) * -1;
-//   if (adjust == '2'){
-//     // console.log('second');
-//     margin = windowWidth - elementWidth - (Math.floor(Math.random() * 100) + 100);
-//   }
-//   console.log('adjust' + adjust);
-//   console.log('windowWidth' + windowWidth);
-//   console.log('elementWidth' + elementWidth);
-//   console.log('margin' + margin);
-//   $(this).css('transform', 'translateX('+margin+'px)');
-// });
-
-$('.tlt').textillate(
-  {
-  initialDelay: 200,
-   type: 'char',
-   inEffects: ['rollIn'],
-   minDisplayTime: 200,
- }
-);
-
-$('.tlt2').textillate(
-  {
-  initialDelay: 400,
-   type: 'char',
-   inEffects: ['splat'],
-   minDisplayTime: 0,
- }
-);
-
-$('.tlt3').textillate(
-  {
-  initialDelay: 600,
-   type: 'char',
-   inEffects: ['rollIn'],
-   minDisplayTime: 0,
- }
-);
-
-$('.tlt4').textillate(
-  {
-  initialDelay: 800,
-   type: 'char',
-   inEffects: ['splat'],
-   minDisplayTime: 0,
- }
-);
-$('.tlt5').textillate(
-  {
-  initialDelay: 1000,
-   type: 'char',
-   inEffects: ['rollIn'],
-   minDisplayTime: 0,
- }
-);
+animateWords();
 
 
 });
