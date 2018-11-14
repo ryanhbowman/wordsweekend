@@ -144,6 +144,7 @@ $( ".tilt" ).each(function() {
     if (adjust == '2'){
       margin = (Math.floor(Math.random() * (windowWidth / 5)) + (windowWidth / 4)) - currentLeft;
     }
+    var maxWidth = 600;
     // console.log('medium')
   }
   else if (browserSize < 735 && browserSize > 500){
@@ -153,6 +154,7 @@ $( ".tilt" ).each(function() {
     if (adjust == '2'){
       margin = 0
     }
+    var maxWidth = 600;
     // console.log('small')
   }
   else if (browserSize < 500){
@@ -162,10 +164,14 @@ $( ".tilt" ).each(function() {
     if (adjust == '2'){
       margin = (Math.floor(Math.random() * 10)- 20)
     }
+    var maxWidth = 300;
     // console.log('xsmall')
   }
 
   $(this).css('transform', 'translateX('+margin+'px)').css('opacity','1');
+  if (maxWidth){
+    $(this).css('max-width',maxWidth + 'px');
+  }
 
   console.log('adjust' + adjust);
   console.log('windowWidth' + windowWidth);
