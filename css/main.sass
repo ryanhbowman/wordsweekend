@@ -53,6 +53,10 @@ p
     margin: 0
   &.indent
     text-indent: 4em
+  &.caption
+    margin-top: 5px
+    font-size: 14px
+    line-height: 19px
 h1, h3, h4, h5, h6
   font-family: 'Grot', Helvetica, sans-serif
   font-weight: 400
@@ -194,7 +198,10 @@ $tab-header: 48px
     margin-top: 4em
     overflow: auto
   .tab-image
-    margin: 0 2em 2em 0
+    margin: 0 0 2em
+    img
+      width: 100%
+      float: none
 .tab--sage
   background: $sage
   right: -1 * ($tab-width - ($tab-header * 3))
