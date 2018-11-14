@@ -191,7 +191,7 @@ $tab-header: 48px
     bottom: 0
     right: 0
     padding: 0em 1em 1em
-    margin-top: 3em
+    margin-top: 4em
     overflow: auto
   .tab-image
     margin: 0 2em 2em 0
@@ -243,11 +243,13 @@ $tab-header: 48px
   position: fixed
   right: 21px
   z-index: 34
-  top: 104px
+  top: 95px
   font-size: 12px
   text-transform: uppercase
   letter-spacing: 1px
   opacity: 0
+  background: white
+  padding: 4px 8px
 
   transition: .4s all
   svg
@@ -255,15 +257,15 @@ $tab-header: 48px
     position: relative
 .sage--active
   .close-tab
-    opacity: .8
+    opacity: 1
     right: 21px + 96px
 .lowry--active
   .close-tab
-    opacity: .8
+    opacity: 1
     right: 21px + 48px
 .regent--active
   .close-tab
-    opacity: .8
+    opacity: 1
     right: 21px
 .flip
   transform: rotate(90deg)
@@ -493,6 +495,8 @@ h1
 @media (max-width: 769px)
   $h1height: 100px
   $h1adjust: 80px
+
+
   .animation
     height: calc(77vh - 90px)
     h1
@@ -550,8 +554,11 @@ h1
       left: 0
     h5
       padding-left: 0
-      float: left
+      float: none
       margin-right: 10px
+      font-size: 11.5px
+      &:nth-of-type(2)
+        margin-top: -30px
     .tab--header
       width: auto
       transform: none
@@ -564,11 +571,15 @@ h1
     font-size: 18px
     line-height: 24px
 
+  .sage--active .close-tab, .lowry--active .close-tab, .regent--active .close-tab
+    right: 27px
+    top: 70px
   .tab-container
 
     &.sage--active
       .close-tab
         display: block
+        // right: 90px
       .tab--sage
         top: 90px
       .tab--lowry, .tab--regent
@@ -577,6 +588,7 @@ h1
     &.lowry--active
       .close-tab
         display: block
+        // right: 48px
       .tab--sage, .tab--regent
         top: 100%
       .tab--lowry
@@ -584,6 +596,7 @@ h1
     &.regent--active
       .close-tab
         display: block
+        // right: 48px
       .tab--regent
         top: 90px
       .tab--lowry, .tab--sage
@@ -596,10 +609,11 @@ h1
       top: $h1height + $h1adjust - 40px
       margin-left: 0px
 @media (max-width: 500px)
-  $h1height: 50px
-  $h1adjust: 90px
+  $h1height: 65px
+  $h1adjust: 60px
   .animation
-    height: calc(77vh - 90px)
+    height: calc(57vh - 70px)
+    overflow: hidden
     h1
       font-size: 70px
       line-height: 10px
@@ -608,14 +622,19 @@ h1
         // margin-left: 400px
       &:nth-of-type(2)
         top: $h1adjust + $h1height * 2
+        // margin-left: 10px
+        // margin-top: 10px
       &:nth-of-type(3)
         top: $h1adjust + $h1height * 3
-        // margin-left: 400px
+        margin-left: -60px
+        // margin-top: 10px
       &:nth-of-type(4)
         top: $h1adjust + $h1height * 4
         // right: 0
+        // margin-top: 10px
       &:nth-of-type(5)
         top: $h1adjust + $h1height * 5
+        // margin-top: 10px
 @media (max-width: 600px)
 
   .flex
@@ -629,8 +648,13 @@ h1
 
     .one, .two, .three
       margin-bottom: 1.5em
-
-
+  .normal .col
+    display: block
+    width: 100%
+    margin-bottom: 1em
+    margin-right: 0
+  .tab-header h5
+    font-size: 13px
   p.big
     font-size: 20px
     line-height: 26px

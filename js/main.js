@@ -135,7 +135,7 @@ $( ".tilt" ).each(function() {
     if (adjust == '2'){
       margin = (Math.floor(Math.random() * (windowWidth / 5)) + (windowWidth / 4)) - currentLeft;
     }
-    console.log('medium')
+    // console.log('medium')
   }
   else if (browserSize < 735 && browserSize > 500){
     var elementWidth = $(this).data('width');
@@ -144,24 +144,24 @@ $( ".tilt" ).each(function() {
     if (adjust == '2'){
       margin = 0
     }
-    console.log('small')
+    // console.log('small')
   }
   else if (browserSize < 500){
     var elementWidth = $(this).data('width');
     var windowWidth = browserSize;
-    var margin = (Math.floor(Math.random() * 10));
+    var margin = (Math.floor(Math.random() * 10) + 20);
     if (adjust == '2'){
-      margin = (Math.floor(Math.random() * 20))
+      margin = (Math.floor(Math.random() * 10)- 20)
     }
-    console.log('small')
+    // console.log('xsmall')
   }
 
   $(this).css('transform', 'translateX('+margin+'px)');
 
-  console.log('adjust' + adjust);
-  console.log('windowWidth' + windowWidth);
-  console.log('elementWidth' + elementWidth);
-  console.log('margin' + margin);
+  // console.log('adjust' + adjust);
+  // console.log('windowWidth' + windowWidth);
+  // console.log('elementWidth' + elementWidth);
+  // console.log('margin' + margin);
 
 });
 
