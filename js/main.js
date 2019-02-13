@@ -37,7 +37,7 @@ function initializeClock(id, endtime) {
   var timeinterval = setInterval(updateClock, 1000);
 }
 
-var deadline = '2019-10-25'
+var deadline = '2019-12-6'
 initializeClock('clockdiv', deadline);
 
 function minLogo() {
