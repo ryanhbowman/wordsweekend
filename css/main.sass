@@ -20,6 +20,13 @@ $text: #1D1D1B
 $sage: #273D2D
 $lowry: #004F9E
 $regent: #F5A623
+$green: #314738
+$blue: #015CA7
+$light-blue: #3F638B
+$pink: #EA4C98
+$yellow: #FBB701
+$gray: #F8F7F1
+$menu-height: 90px
 
 *
   box-sizing: border-box
@@ -110,8 +117,8 @@ header.header
   height: 90px
   box-shadow: 0 0px 9px rgba(0,0,0,0.3)
 article.main
-  margin: 70px 144px 0 auto
-  // padding: 1em
+  margin: 70px 0 0 auto
+  
 .menu
   height: 90px
   padding: 0 2em
@@ -126,14 +133,14 @@ article.main
   &.logo-active
     opacity: 1
     top: 0
-    top: -11px
+    top: -31px
 
 
 .big-logo
-  top: -15px
+  top: -55px
   &.logo-active
     opacity: 1
-    top: 16px
+    top: 22px
 
 
 .mb
@@ -301,6 +308,17 @@ $tab-header: 48px
     border: none
   &.small
     padding: .75em 1.5em
+  &.white
+    background: white
+    color: $main
+    border: none
+  &.yellow-btn.giant
+    background: $yellow
+    color: black
+    border: none
+    padding: 1.25em 2.25em
+    min-width: 300px
+    font-size: 24px
   &:hover
     background: rgba(0,0,0,.7)
 .full-width
@@ -308,12 +326,14 @@ $tab-header: 48px
   width: 100%
 
 .container
-  max-width: 1400px
+  max-width: 1200px
   padding: 1.5em
   margin: 0 auto
   width: 100%
   &.container--small
     max-width: 800px
+  &.container--padding
+    padding: 4em 1.5em
 .cf:before,.cf:after
   content: " "
   display: table
@@ -360,6 +380,10 @@ $tab-header: 48px
   display: flex
   flex-wrap: wrap
   justify-content: start
+  &.marginal .one
+    margin-right: 4%
+    &:nth-of-type(4n+4)
+      margin-right: 0
   img
     width: 100%
   .one
@@ -376,6 +400,9 @@ $tab-header: 48px
       margin-right: 4%
       &:last-of-type
         margin-right: 0
+    &.quarter
+      max-width: 21%
+      flex-basis: 21%
   .two
     flex: 2
     -webkit-flex: 2
@@ -393,6 +420,37 @@ $tab-header: 48px
       max-width: 100%
   &.flex-middle
     align-items: center
+.list
+  img
+    margin-bottom: 1em
+  .one
+    margin-bottom: 2em
+
+.blue
+  background: $blue
+  padding: 3em 0
+  h1, h2, h3, p, h4
+    color: white
+.light-blue
+  background: $light-blue
+  padding: 3em 0
+  h1, h2, h3, p, h4
+    color: black
+.pink
+  background: $pink
+  padding: 3em 0
+  h1, h2, h3, p, h4
+    color: white
+.gray
+  background: $gray
+  padding: 3em 0
+  h1, h2, h3, p, h4
+    color: black
+.yellow
+  background: $yellow
+  padding: 3em 0
+  h1, h2, h3, p, h4
+    color: black
 .menu-item
   text-align: center
   font-size: 18px
@@ -469,14 +527,27 @@ input, textarea
   float: left
 .m-r
   margin-right: .5em
+.justify
+  text-align: justify
 
 
-.mobile-menu
-  display: none
 .tab img
   float: right
+.menu-activator
+  cursor: pointer
 .menu-pop-up
-  display: none
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1)
+  margin-top: -500px
+  position: fixed
+  z-index: 99999999
+  background: white
+  width: 100%
+  transition: .5s all
+  top: 0
+  &.active
+    margin-top: $menu-height
+  .container
+    max-width: 1000px
 
 
 $h1height: 100px
@@ -486,7 +557,12 @@ h1
   line-height: 105px
   width: auto
   font-size: 140px
+article.no-animation
+  margin-top: 140px
+  
 .animation
+  background: $green
+  color: white
   overflow: hidden
   height: calc(77vh - 90px)
   min-height: 570px
@@ -503,7 +579,30 @@ h1
       top: $h1adjust + $h1height * 4
     &:nth-of-type(5)
       top: $h1adjust + $h1height * 5
-
+.description
+  position: absolute
+  width: 50%
+  max-width: 530px
+  background: $yellow
+  min-width: 300px
+  transition: .5s all
+  opacity: 0
+  padding: 1.5em
+  margin-left: -1.5em
+  margin-top: -1.5em
+  z-index: 0
+  display: none
+  
+.event
+  cursor: pointer
+  transition: .5s all
+  &.open
+    .description
+      opacity: 1
+      display: block
+      z-index: 1
+  &.dulled
+    opacity: .15
 @media (max-width: 970px)
   .email h2
     font-size: 20px
@@ -516,15 +615,15 @@ h1
 
 
   .animation
-    height: calc(67vh - 90px)
-    min-height: 500px
+    height: calc(77vh - 90px)
+    min-height: 570px
     h1
       position: absolute
       width: 100%
       // background: rgba(0,0,0,.1)
-      height: 100px
-      font-size: 130px
-      line-height: 40px
+      height: 170px
+      font-size: 140px
+      line-height: 105px
       &:nth-of-type(1)
         top: $h1height + $h1adjust - 40px
         margin-left: 0px
@@ -548,10 +647,12 @@ h1
     background: white
     transition: .4s all
     border-bottom: 1px solid #ddd
-    &.active
-      top: 89px
+    // &.active
+    //   top: $menu-height
   .mobile-menu
     display: block
+
+
 
   h2
     font-size: 20px
@@ -621,7 +722,8 @@ h1
       .tab--lowry, .tab--sage
         top: 100%
 
-
+.hide-desktop
+  display: none
 @media (max-width: 735px)
   .animation
     h1:nth-of-type(1)
@@ -656,9 +758,18 @@ h1
         top: $h1adjust + $h1height * 5
         // margin-top: 10px
 @media (max-width: 600px)
-
+  .menu-pop-up
+    &.active
+      margin-top: 0px
   .flex
     display: block
+    .one
+      &.quarter
+        max-width: 100%
+        flex-basis: 100%
+        margin-bottom: 2.5em
+        h2
+          margin-bottom: 6px
     &.preserve
       display: -webkit-flex
       display: -ms-flex
@@ -680,6 +791,8 @@ h1
     line-height: 26px
   .hide-mobile
     display: none
+  .hide-desktop
+    display: block
   .menu
     svg
       max-width: 220px
@@ -726,6 +839,20 @@ h1
     right: 0
   .next svg
     width: 40px
+  .small-logo
+    top: 15px
+    display: block
+    &.logo-active
+      opacity: 1
+      top: 0
+      top: -43px
+
+
+  .big-logo
+    top: -55px
+    &.logo-active
+      opacity: 1
+      top: 12px
 
 
 
@@ -734,8 +861,22 @@ h1
   h3
     font-size: 15px
     line-height: 20px
+  h1
+    font-size: 70px
 .cc-window.cc-floating
   padding: 1.2em !important
   // background: yellow
   font-size: .8em !important
   border: 1px solid lightgray
+
+
+header
+  transition: .3s all
+header.yellow-bg
+  background: $yellow
+header.blue-bg
+  background: $blue
+header.pink-bg
+  background: $pink
+header.green-bg
+  background: $green

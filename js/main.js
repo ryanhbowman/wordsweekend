@@ -37,8 +37,8 @@ function initializeClock(id, endtime) {
   var timeinterval = setInterval(updateClock, 1000);
 }
 
-var deadline = '2019-12-6'
-initializeClock('clockdiv', deadline);
+// var deadline = '2019-12-6'
+// initializeClock('clockdiv', deadline);
 
 function minLogo() {
         //how fast to hide the work mark
@@ -63,8 +63,8 @@ function animateWords() {
     //if first half or second
     var adjust = $(this).attr('data-adjust');
     //the current random left margin that is annoying
-    var currentLeft = 400;
-    var tabs = 144;
+    var currentLeft = 600;
+    var tabs = 0;
     var browserSize = $(window).innerWidth();
 
     if (browserSize > 1700){
@@ -77,7 +77,7 @@ function animateWords() {
     }
 
     if (browserSize > 769 && browserSize < 1700){
-      var elementWidth = $(this).data('width')+ currentLeft;
+      var elementWidth = $(this).data('width') + currentLeft;
       var windowWidth = browserSize - tabs;
       var margin = ((windowWidth / 2) - ((currentLeft + elementWidth) / 2)) - (Math.floor(Math.random() * 100) + 170);
       if (adjust == '2'){
@@ -172,10 +172,57 @@ function animateWords() {
    }
   );
 }
+  
+
+
+
 
 $(window).scroll(function () {
   minLogo();
-});
+  
+  if ($('.yellow').length > 0){
+      var distance = $('.yellow').offset().top,
+      $window = $(window);
+      if ($window.scrollTop() >= (distance - 90)) {
+        console.log('yellow');
+        $('header').addClass('yellow-bg');
+      }
+      else {
+        $('header').removeClass('yellow-bg');
+      }
+    }
+  
+  if ($('.pink').length > 0) {
+    var distance2 = $('.pink').offset().top, $window = $(window);
+    if ($window.scrollTop() >= (distance2 - 90)) {
+      console.log('pink');
+      $('header').addClass('pink-bg');
+    }
+    else if ($window.scrollTop() <= (distance2 - 90)) {
+      $('header').removeClass('pink-bg');
+    }
+  }
+    
+
+if ($('.blue').length > 0) {
+
+  var distance3 = $('.blue').offset().top, $window = $(window);
+  var heightBlue = $('.blue').height();
+  console.log(distance3 + heightBlue);
+  console.log(distance3);
+  console.log(heightBlue);
+  if ($window.scrollTop() >= (distance3 - 90) && $window.scrollTop() <= (distance3 + heightBlue)) { 
+    $('header').addClass('blue-bg');
+  }
+ 
+  else {
+    $('header').removeClass('blue-bg');
+    console.log('remove2');
+  }
+}
+  
+
+  });
 
 
 $(window).resize(function () {
@@ -185,10 +232,76 @@ $(window).resize(function () {
 
 
 $( document ).ready(function() {
+  if ($('.no-animation').length > 0){
+    $.getJSON('https://api.sheety.co/39392d11-c09a-4d10-b84c-24ab3043b689', function (data) {
+    var template = Handlebars.compile($('#item-template').html())
+    $('#items').html(template(data))
+
+    })
+  
+
+  .done(function(){
+    if ($(window).width() > 600) {
+      $(".event").find('.clickable').click(function () {
+        console.log('event');
+        if($(this).parent().hasClass('open')){
+          $(this).parent().siblings().each(function () {
+            $(this).removeClass('open');
+            $(this).removeClass('dulled');
+          });
+          $(this).parent().removeClass('dulled');
+          $(this).parent().removeClass('open');
+        }
+        else {
+          $(this).parent().siblings().each(function () {
+            $(this).removeClass('open');
+            $(this).addClass('dulled');
+          });
+          $(this).parent().removeClass('dulled');
+          $(this).parent().addClass('open');
+        }
+        
+      });
+
+      $(".close").click(function (e) {
+        console.log('close2');
+        e.preventDefault();
+        $(this).parent().parent().removeClass('open');
+        $(this).parent().parent().siblings().each(function () {
+          $(this).removeClass('open');
+          $(this).removeClass('dulled');
+        });
+        // $(this).parent().parent().siblings().each(function () {
+        //   $(this).removeClass('open').removeClass('dulled');
+        // });
+        // if (e.target !== e.currentTarget) return;
+
+      });
+    }
+    $(".menu-activator").click(function (e) {
+      e.preventDefault();
+      if ($('.menu-pop-up').hasClass('active')){
+        $('.menu-pop-up').removeClass('active');
+        console.log('has');
+      }
+      else {
+        $('.menu-pop-up').addClass('active');
+        console.log('no');
+      }
+      
+      
+    });
+
+  })
+}
   $('.carousel').slick({
     nextArrow:'.next',
     prevArrow:'.prev',
   });
+
+
+  
+
 
   $(".scroll").click(function(e) {
       e.preventDefault();
@@ -198,40 +311,35 @@ $( document ).ready(function() {
       }, 1000);
   });
 
-  $(".tab header").click(function(e) {
-      e.preventDefault();
-      var tabLocation = $(this).parent().attr('data-location');
-      $('#tabContainer').removeClass();
-      $('#tabContainer').addClass('tab-container').addClass(tabLocation);
-  });
 
-  $(".menu-item").click(function(e) {
-      e.preventDefault();
-      var tabLocation = $(this).attr('data-location');
-      $('#tabContainer').removeClass();
-      $('#tabContainer').addClass('tab-container').addClass(tabLocation);
-      $('.menu-pop-up').toggleClass('active');
-  });
 
-  $(".mobile-menu").click(function(e) {
+  // $(".menu-item").click(function(e) {
+  //     e.preventDefault();
+  //     var tabLocation = $(this).attr('data-location');
+  //     $('#tabContainer').removeClass();
+  //     $('#tabContainer').addClass('tab-container').addClass(tabLocation);
+  //     $('.menu-pop-up').toggleClass('active');
+  // });
+
+  $(".menu-activator").click(function(e) {
       e.preventDefault();
       $('.menu-pop-up').toggleClass('active');
   });
 
-  $(".close-tab").click(function(e) {
-      e.preventDefault();
-      $('#tabContainer').removeClass().addClass('tab-container');
-  });
+  // $(".close-tab").click(function(e) {
+  //     e.preventDefault();
+  //     $('#tabContainer').removeClass().addClass('tab-container');
+  // });
 
-  $(".header").click(function(e) {
-      e.preventDefault();
-      $('#tabContainer').removeClass().addClass('tab-container');
-  });
+  // $(".header").click(function(e) {
+  //     e.preventDefault();
+  //     $('#tabContainer').removeClass().addClass('tab-container');
+  // });
 
-  $(".main").click(function() {
-      // e.preventDefault();
-      $('#tabContainer').removeClass().addClass('tab-container');
-  });
+  // $(".main").click(function() {
+  //     // e.preventDefault();
+  //     $('#tabContainer').removeClass().addClass('tab-container');
+  // });
 
 
 animateWords();
