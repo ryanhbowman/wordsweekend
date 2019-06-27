@@ -596,6 +596,9 @@ article.no-animation
 .event
   cursor: pointer
   transition: .5s all
+  &:nth-of-type(4n+4)
+    .description
+        transform: translateX(calc(-50% + 1.5em))
   &.open
     .description
       opacity: 1
