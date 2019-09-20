@@ -48,7 +48,7 @@ function minLogo() {
 
         //how far you have scrolled
         var scrollProgress = $(window).scrollTop();
-        console.log(scrollProgress);
+        // console.log(scrollProgress);
         if (scrollProgress > control){
           $('.small-logo').addClass('logo-active');
           $('.big-logo').removeClass('logo-active');
@@ -120,10 +120,10 @@ function animateWords() {
       $(this).css('max-width',maxWidth + 'px');
     }
 
-    console.log('adjust' + adjust);
-    console.log('windowWidth' + windowWidth);
-    console.log('elementWidth' + elementWidth);
-    console.log('margin' + margin);
+    // console.log('adjust' + adjust);
+    // console.log('windowWidth' + windowWidth);
+    // console.log('elementWidth' + elementWidth);
+    // console.log('margin' + margin);
 
   });
 
@@ -184,7 +184,7 @@ $(window).scroll(function () {
       var distance = $('.yellow').offset().top,
       $window = $(window);
       if ($window.scrollTop() >= (distance - 90)) {
-        console.log('yellow');
+        // console.log('yellow');
         $('header').addClass('yellow-bg');
       }
       else {
@@ -195,7 +195,7 @@ $(window).scroll(function () {
   if ($('.pink').length > 0) {
     var distance2 = $('.pink').offset().top, $window = $(window);
     if ($window.scrollTop() >= (distance2 - 90)) {
-      console.log('pink');
+      // console.log('pink');
       $('header').addClass('pink-bg');
     }
     else if ($window.scrollTop() <= (distance2 - 90)) {
@@ -208,16 +208,16 @@ if ($('.blue').length > 0) {
 
   var distance3 = $('.blue').offset().top, $window = $(window);
   var heightBlue = $('.blue').height();
-  console.log(distance3 + heightBlue);
-  console.log(distance3);
-  console.log(heightBlue);
+  // console.log(distance3 + heightBlue);
+  // console.log(distance3);
+  // console.log(heightBlue);
   if ($window.scrollTop() >= (distance3 - 90) && $window.scrollTop() <= (distance3 + heightBlue)) { 
     $('header').addClass('blue-bg');
   }
  
   else {
     $('header').removeClass('blue-bg');
-    console.log('remove2');
+    // console.log('remove2');
   }
 }
   
@@ -243,7 +243,7 @@ $( document ).ready(function() {
   .done(function(){
     if ($(window).width() > 600) {
       $(".event").find('.clickable').click(function () {
-        console.log('event');
+        // console.log('event');
         if($(this).parent().hasClass('open')){
           $(this).parent().siblings().each(function () {
             $(this).removeClass('open');
@@ -264,7 +264,7 @@ $( document ).ready(function() {
       });
 
       $(".close").click(function (e) {
-        console.log('close2');
+        // console.log('close2');
         e.preventDefault();
         $(this).parent().parent().removeClass('open');
         $(this).parent().parent().siblings().each(function () {
@@ -282,11 +282,11 @@ $( document ).ready(function() {
       e.preventDefault();
       if ($('.menu-pop-up').hasClass('active')){
         $('.menu-pop-up').removeClass('active');
-        console.log('has');
+        // console.log('has');
       }
       else {
         $('.menu-pop-up').addClass('active');
-        console.log('no');
+        // console.log('no');
       }
       
       
@@ -309,6 +309,16 @@ $( document ).ready(function() {
       $([document.documentElement, document.body]).animate({
           scrollTop: ($(toScroll).offset().top - 100)
       }, 1000);
+  });
+
+  Handlebars.registerHelper('ifEquals', function (arg1, arg2, options) {
+    return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+  });
+
+  Handlebars.registerHelper('contains', function (needle, haystack, options) {
+    needle = Handlebars.escapeExpression(needle);
+    haystack = Handlebars.escapeExpression(haystack);
+    return (haystack.indexOf(needle) > -1) ? options.fn(this) : options.inverse(this);
   });
 
 
