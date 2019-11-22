@@ -128,7 +128,8 @@ function animateWords() {
   });
 
 
-  $('.tlt').textillate(
+  if ($('.tlt').length) {
+    $('.tlt').textillate(
     {
     initialDelay: 200,
      type: 'char',
@@ -171,6 +172,7 @@ function animateWords() {
      minDisplayTime: 0,
    }
   );
+  }
 }
   
 
@@ -232,7 +234,7 @@ $(window).resize(function () {
 
 
 $( document ).ready(function() {
-  if ($('.no-animation').length > 0){
+  if ($('.sage').length > 0){
     $.getJSON('https://api.sheety.co/39392d11-c09a-4d10-b84c-24ab3043b689', function (data) {
     var template = Handlebars.compile($('#item-template').html())
     $('#items').html(template(data))
@@ -294,11 +296,73 @@ $( document ).ready(function() {
 
   })
 }
-  $('.carousel').slick({
+
+  if ($('.lowry').length > 0) {
+    $.getJSON('https://v2-api.sheety.co/8c44c66fb22a8e8d8283efe8947759bb/lowry/lowry', function (data) {
+      var template = Handlebars.compile($('#item-template').html())
+      $('#items').html(template(data.lowry))
+    })
+
+      .done(function () {
+        if ($(window).width() > 600) {
+          $(".event").find('.clickable').click(function () {
+            // console.log('event');
+            if ($(this).parent().hasClass('open')) {
+              $(this).parent().siblings().each(function () {
+                $(this).removeClass('open');
+                $(this).removeClass('dulled');
+              });
+              $(this).parent().removeClass('dulled');
+              $(this).parent().removeClass('open');
+            }
+            else {
+              $(this).parent().siblings().each(function () {
+                $(this).removeClass('open');
+                $(this).addClass('dulled');
+              });
+              $(this).parent().removeClass('dulled');
+              $(this).parent().addClass('open');
+            }
+
+          });
+
+          $(".close").click(function (e) {
+            // console.log('close2');
+            e.preventDefault();
+            $(this).parent().parent().removeClass('open');
+            $(this).parent().parent().siblings().each(function () {
+              $(this).removeClass('open');
+              $(this).removeClass('dulled');
+            });
+            // $(this).parent().parent().siblings().each(function () {
+            //   $(this).removeClass('open').removeClass('dulled');
+            // });
+            // if (e.target !== e.currentTarget) return;
+
+          });
+        }
+        $(".menu-activator").click(function (e) {
+          e.preventDefault();
+          if ($('.menu-pop-up').hasClass('active')) {
+            $('.menu-pop-up').removeClass('active');
+            // console.log('has');
+          }
+          else {
+            $('.menu-pop-up').addClass('active');
+            // console.log('no');
+          }
+
+
+        });
+
+      })
+  }
+  if ($('.carousel').length){
+    $('.carousel').slick({
     nextArrow:'.next',
     prevArrow:'.prev',
   });
-
+  }
 
   
 

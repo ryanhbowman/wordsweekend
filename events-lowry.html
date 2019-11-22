@@ -116,7 +116,7 @@
               </g>
             </g>
           </svg><br />
-          <span style="font-size:18px; margin-top:2px;display:block">Sage Gateshead</span>
+          <span style="font-size:18px; margin-top:2px;display:block">The Lowry</span>
         </a>
         <a href="/" class="small-logo">
           <svg width="79px" height="31px" viewBox="0 0 79 31" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -135,7 +135,7 @@
             </g>
           </svg>
           <br />
-          <span style="font-size:18px; margin-top:2px;display:block">Sage Gateshead</span>
+          <span style="font-size:18px; margin-top:2px;display:block">The Lowry</span>
         </a>
       </div>
       <div class="one ta-right " style="top: -8px;position: relative;">
@@ -146,26 +146,28 @@
 
 
 
-  <article class="main no-animation sage">
+  <article class="main no-animation lowry">
 
     <section class="section space-group">
       <div class="container" style="max-width: 1024px">
         <h1 class="ta-center" style="margin-bottom: 60px;">Events</h1>
-        <h3 class="ta-center space-group-small">6th - 8th DECEMBER, 2019</h3>
-        <h2 class="space-group-small justify" id="items2">Fane is proud to announce the line-up for the inaugural Words
-          Weekend. There will be over 60 events taking place across 5 venues of the iconic Sage Gateshead from 6-8
-          December 2019. Every event is accessible, BSL interpreted and 40% of events are completely free.</h2>
+        <h3 class="ta-center space-group-small">27 - 29 March 2020</h3>
+        <h2 class="space-group-small justify" id="items2">Fane is proud to announce the first names for Words Weekend
+            Salford. There will be 60+ events, taking over 5 spaces of the iconic venue, The Lowry from 27-29 March
+            2020. Every event will be accessible and BSL interpreted and at least 25% of the programme will be free.
+        </h2>
       </div>
       <div class="container container--small" style="max-width:600px;">
-        <a href="https://sagegateshead.com/"><img src="images/sage.jpg" alt="" style="max-width:100%"></a>
+        <a href="https://sagegateshead.com/"><img src="images/lowry.jpg" alt="" style="max-width:100%"></a>
         <h2 class="compress">
           <a href="https://sagegateshead.com/">
-            Sage Gateshead<br>
-            St Mary's Square, Gateshead Quays<br>
-            Gateshead NE8 2JR
+            The Lowry<br/>
+            The Quays<br/>
+            Pier 8<br/>
+            The Quays Salford
           </a>
         </h2>
-        <h6><a href="https://goo.gl/maps/Ar6vkerywn22" target="_blank">VIEW ON MAP</a></h6>
+        <h6><a href="https://goo.gl/maps/w5vGXuT3j25kdrxc7" target="_blank">VIEW ON MAP</a></h6>
         <!-- <div class="www"></div> -->
       </div>
     </section>
@@ -181,7 +183,10 @@
           
           	{{#each this}}
               <div class="one quarter event">
-                <img src="{{#if image}}{{image}}{{else}}images/ww.jpg{{/if}}" alt="" class="clickable" style="width:100%">
+                <img src="{{#if image}}https://res.cloudinary.com/circle-circle/image/upload/w_500,h_500,c_thumb/lowry/{{image}}
+                .jpg{{else}}images/ww.jpg{{/if}}"
+                    alt="" class="clickable"
+                    style="width:100%">
                 <h4 class="clickable">
                   {{date}}
                 </h4>
@@ -190,8 +195,12 @@
                 </h2>
                 <a href="{{link}}" target="_blank" class="hide-desktop">Buy tickets &rarr;</a>
                 <div class="description">
+                     <h4 >
+                         {{venue}}, {{time}}
+                     </h4>
                   <p class="justify">{{description}}</p>
-                  <a href="{{link}}" target="_blank" class="button button--small">{{button}}</a>
+                 
+                  {{#if link}}<a href="{{link}}" target="_blank" class="button button--small">{{button}}</a>{{/if}}
                   <a href="#" class="button button--small close">Close</a>
                 </div>
               </div>
