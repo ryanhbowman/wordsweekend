@@ -341,19 +341,7 @@ $( document ).ready(function() {
 
           });
         }
-        $(".menu-activator").click(function (e) {
-          e.preventDefault();
-          if ($('.menu-pop-up').hasClass('active')) {
-            $('.menu-pop-up').removeClass('active');
-            // console.log('has');
-          }
-          else {
-            $('.menu-pop-up').addClass('active');
-            // console.log('no');
-          }
-
-
-        });
+        
 
       })
   }
@@ -364,7 +352,6 @@ $( document ).ready(function() {
   });
   }
 
-  
 
 
   $(".scroll").click(function(e) {
@@ -389,7 +376,9 @@ $( document ).ready(function() {
 
   $(".menu-activator").click(function(e) {
       e.preventDefault();
+      console.log('menuthg');
       $('.menu-pop-up').toggleClass('active');
+    $('#menupop').addClass('active');
   });
 
   // $(".close-tab").click(function(e) {
