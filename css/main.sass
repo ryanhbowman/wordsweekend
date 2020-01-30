@@ -368,6 +368,7 @@ $tab-header: 48px
       margin-right: 0
     &:last-of-type
       margin-right: 0
+  
   .one
     width: 20%
   .two
@@ -380,6 +381,8 @@ $tab-header: 48px
     p.big
       font-size: 26px
       line-height: 40px
+    &.centered
+      margin-left: 25%
 .flex
   display: flex
   display: -webkit-flex
@@ -387,6 +390,8 @@ $tab-header: 48px
   display: flex
   flex-wrap: wrap
   justify-content: start
+  &.centered
+    justify-content: center
   &.marginal .one
     margin-right: 4%
     &:nth-of-type(4n+4)
@@ -777,7 +782,7 @@ article.no-animation
   .flex
     display: block
     .one
-      &.quarter
+      &.quarter, &.half
         max-width: 100%
         flex-basis: 100%
         margin-bottom: 2.5em
