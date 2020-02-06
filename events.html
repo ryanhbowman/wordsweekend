@@ -191,7 +191,9 @@
                 <a href="{{link}}" target="_blank" class="hide-desktop">Buy tickets &rarr;</a>
                 <div class="description">
                   <p class="justify">{{description}}</p>
-                  <a href="{{link}}" target="_blank" class="button button--small">{{button}}</a>
+                  {{#if link}}
+                    <a href="{{link}}" target="_blank" class="button button--small">{{button}}</a>
+                   {{/if}}
                   <a href="#" class="button button--small close">Close</a>
                 </div>
               </div>
