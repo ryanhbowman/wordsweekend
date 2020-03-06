@@ -185,7 +185,9 @@
                 </h2>
                 <div class="description">
                   <p>{{description}}</p>
-                  <a href="{{link}}" class="button button--small">Buy tickets</a>
+                  {{#if link}}
+                    <a href="{{link}}" class="button button--small">Buy tickets</a>
+                  {{/if}}
                   <a href="#" class="button button--small close">Close</a>
                 </div>
               </div>

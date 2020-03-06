@@ -191,7 +191,9 @@
                 <a href="{{link}}" target="_blank" class="hide-desktop">Buy tickets &rarr;</a>
                 <div class="description">
                   <p class="justify">{{description}}</p>
-                  <a href="{{link}}" target="_blank" class="button button--small">{{button}}</a>
+                  {{#if link}}
+                    <a href="{{link}}" target="_blank" class="button button--small">{{button}}</a>
+                   {{/if}}
                   <a href="#" class="button button--small close">Close</a>
                 </div>
               </div>
@@ -471,6 +473,9 @@
       })
     });
   </script>
+  <!-- This site is converting visitors into subscribers and customers with OptinMonster - https://optinmonster.com -->
+<script type="text/javascript" src="https://a.opmnstr.com/app/js/api.min.js" data-account="45342" data-user="39596" async></script>
+<!-- / https://optinmonster.com -->
 </body>
 
 </html>
